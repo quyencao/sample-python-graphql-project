@@ -17,3 +17,4 @@ class Query(graphene.ObjectType):
                 "completed": False
             },
         ]
+
