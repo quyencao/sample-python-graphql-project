@@ -11,8 +11,8 @@ class CreateTodoInput(graphene.InputObjectType):
     completed = graphene.Boolean(required=False)
 
 class CreateTodo(graphene.Mutation):
-    class Input:
-        input = graphene.InputField(CreateTodoInput)
+    class Arguments:
+        input = CreateTodoInput(required=True)
 
     def mutate(self, info, input):
         data = db.getTable("todosTable").insertRecord(input)
