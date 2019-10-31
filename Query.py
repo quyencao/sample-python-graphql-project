@@ -8,4 +8,3 @@ class Query(graphene.ObjectType):
     def resolve_getTodos(self, info):
         todos = db.getTable("todosTable").getRecords({})
         return todos
-

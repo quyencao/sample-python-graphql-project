@@ -1,4 +1,5 @@
 import graphene
+from db import db
 
 class Todo(graphene.ObjectType):
     id = graphene.ID()
@@ -13,3 +14,13 @@ class CreateTodo(graphene.Mutation):
 
     def mutate(self, info, todo):
         return Todo(text=todo.text, completed=False, id="123")
+
+class DeleteTodo(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+    
+    output = graphene.Boolean()
+
+    def mutate(self, info, id):
+        output = db.getTable("todosTable").deleteRecordById(id)
+        return DeleteTodo(output=output)
