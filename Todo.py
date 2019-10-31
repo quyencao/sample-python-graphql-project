@@ -15,7 +15,7 @@ class CreateTodo(graphene.Mutation):
         input = CreateTodoInput()
 
     def mutate(self, info, input):
-        data = db.getTable("todosTable").insertRecord(input)
+        data = db.getTable("todosTable").insertRecord({ **input })
         return data
 
 class DeleteTodo(graphene.Mutation):
