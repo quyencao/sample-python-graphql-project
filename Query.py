@@ -1,5 +1,6 @@
 import graphene
 from Todo import Todo
+from aih_dynamodb.database import Database
 
 class Query(graphene.ObjectType):
     getTodos = graphene.List(Todo)
