@@ -12,10 +12,10 @@ class CreateTodoInput(graphene.InputObjectType):
 
 class CreateTodo(graphene.Mutation):
     class Arguments:
-        input = CreateTodoInput()
+        todo = CreateTodoInput(required=True)
 
-    def mutate(self, info, input):
-        data = db.getTable("todosTable").insertRecord({ **input })
+    def mutate(self, info, todo):
+        data = db.getTable("todosTable").insertRecord({ 'text': todo.text, 'completed': todo.completed })
         return data
 
 class DeleteTodo(graphene.Mutation):
