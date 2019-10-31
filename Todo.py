@@ -6,17 +6,17 @@ class Todo(graphene.ObjectType):
     text = graphene.String()
     completed = graphene.Boolean()
         
-class CreateTodoInput(graphene.InputObjectType):
-    text = graphene.String(required=True)
-    completed = graphene.Boolean(required=False)
+# class CreateTodoInput(graphene.InputObjectType):
+#     text = graphene.String(required=True)
+#     completed = graphene.Boolean(required=False)
 
-class CreateTodo(graphene.Mutation):
-    class Arguments:
-        input = CreateTodoInput(required=True)
+# class CreateTodo(graphene.Mutation):
+#     class Arguments:
+#         input = CreateTodoInput(required=True)
 
-    def mutate(self, info, input):
-        data = db.getTable("todosTable").insertRecord(input)
-        return data
+#     def mutate(self, info, input):
+#         data = db.getTable("todosTable").insertRecord(input)
+#         return data
 
 class DeleteTodo(graphene.Mutation):
     class Arguments:
