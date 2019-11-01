@@ -1,6 +1,6 @@
 import graphene
-from Todo import DeleteTodo
+from Todo import CreateTodo
 
 class Mutation(graphene.ObjectType):
-    # create_todo = CreateTodo.Field()
-    delete_todo = DeleteTodo.Field()
+    create_todo = CreateTodo.Field()
+    # delete_todo = DeleteTodo.Field()
